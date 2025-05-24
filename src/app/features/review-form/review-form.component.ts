@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { ReviewService, Review } from '../../core/services/review.service';
+import { ReviewService } from '../../core/services/review.service';
+import { Review } from '../../core/models/review.model';
 
 @Component({
   selector: 'app-review-form',
@@ -53,6 +54,21 @@ export class ReviewFormComponent implements OnInit {
         this.loading = false;
       });
   }
+
+  getStatusName(status?: string): string{
+    if (!status) return 'Неизвестный статус';
+    switch (status) {
+      case 'pending':
+        return 'Рассматривается';
+      case 'approved':
+        return 'Одобрен';
+      case 'rejected':
+        return 'Отклонён';
+      default:
+        return status;
+    }
+  }
+  
 
   submitReview() {
     if (!this.newReview.comment.trim()) {

@@ -1,8 +1,13 @@
 export interface Doctor {
-    id: number;
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  experience: number;
+  education: string;
+  specialtyId: number;
+  Specialty: {
     name: string;
-    firstName: string;
-    lastName: string;
-    specialtyId: number;
-    specialty?: string;
-  }
+  };
+}

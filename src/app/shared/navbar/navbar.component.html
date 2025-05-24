@@ -8,8 +8,7 @@
 
     <ng-container *ngIf="isAuthenticated(); else guestLinks">
       <li><a routerLink="/appointments/form">Мои записи</a></li>
-      <li><a routerLink="/reviews">Мои отзывы</a></li>
-      <li><a routerLink="/profile">Профиль ({{ user?.first_name }})</a></li>
+      <li><a href="#" (click)="goToProfile($event)">Профиль</a></li>
       <li><button (click)="logout()" class="logout-btn">Выйти</button></li>
     </ng-container>
 

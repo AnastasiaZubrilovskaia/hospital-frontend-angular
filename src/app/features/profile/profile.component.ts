@@ -22,8 +22,9 @@ export class ProfileComponent implements OnInit {
       next: (user) => {
         this.user = user;
         this.loading = false;
+        this.error = null;
       },
-      error: (error) => {
+      error: (err) => {
         this.error = 'Ошибка загрузки профиля';
         this.loading = false;
       }
@@ -33,4 +34,4 @@ export class ProfileComponent implements OnInit {
   logout(): void {
     this.authService.logout();
   }
-} 
+}

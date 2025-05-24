@@ -13,8 +13,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { 
     path: 'clinic',
-    component: DoctorListComponent,
-    canActivate: [authGuard]
+    component: DoctorListComponent
   },
   { 
     path: 'appointments/form',

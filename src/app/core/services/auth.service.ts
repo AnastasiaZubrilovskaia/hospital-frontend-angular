@@ -2,14 +2,18 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, tap } from "rxjs";
 import { Router } from "@angular/router";
-// import { environment } from '../../environment/environment';
+
 
 export interface User {
   id: number;
   email: string;
-  first_name: string;
-  last_name: string;
+  firstName: string;
+  lastName: string;
+  phone?: string;
+  birthDate?: string;
+  role?: string;
 }
+
 
 export interface AuthResponse {
   token: string;
@@ -57,8 +61,9 @@ export class AuthService {
   loadProfile(): void {
     this.http.get<User>(`${this.apiUrl}/profile`)
       .subscribe({
-        next: (user) => {
-          this.currentUserSubject.next(user);
+        next: (response) => {
+          console.log('Profile loaded:', response);
+          this.currentUserSubject.next(response);
         },
         error: (error) => {
           console.error('Error loading profile:', error);
@@ -66,6 +71,8 @@ export class AuthService {
         }
       });
   }
+  
+  
 
   logout(): void {
     localStorage.removeItem('token');

@@ -39,9 +39,14 @@
           Оценка: {{review.rating}}/5
         </div>
         <div class="status" [ngClass]="review.status">
-          {{review.status}}
+          {{ getStatusName(review.status) }}
         </div>
       </div>
+      
+      <div class="review-author">
+        <strong>Пациент:</strong> {{ review.Patient?.firstName }} {{ review.Patient?.lastName }}
+      </div>
+    
       <div class="review-comment">
         {{review.comment}}
       </div>

@@ -1,19 +1,9 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Review } from '../models/review.model';
 
 
-export interface Review {
-  id: number;
-  rating: number;
-  comment: string;
-  status: 'pending' | 'approved' | 'rejected';
-  created_at: string;
-  patient: {
-    first_name: string;
-    last_name: string;
-  };
-}
 
 @Injectable({ providedIn: 'root' })
 export class ReviewService {
@@ -25,4 +15,5 @@ export class ReviewService {
   createReview(doctorId: number, data: { rating: number; comment: string }): Observable<Review> {
     return this.http.post<Review>(`${this.apiUrl}/doctor/${doctorId}`, data);
   }
+  
 }

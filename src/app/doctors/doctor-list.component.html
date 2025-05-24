@@ -6,8 +6,29 @@
   </select>
 </div>
 
-<div *ngFor="let doctor of doctors">
+<div *ngFor="let doctor of doctors" class="doctor-card">
   <h3>{{ doctor.firstName }} {{ doctor.lastName }}</h3>
-  <p>Специальность: {{ doctor.specialty }}</p>
-  <button (click)="bookAppointment(doctor.id)">Запишитесь на Прием</button>
+  <p>Специальность: {{ doctor.Specialty?.name }}</p>
+  <p>Опыт: {{ doctor.experience }} лет</p>
+  <p>Образование: {{ doctor.education }}</p>
+  <p>Телефон: {{ doctor.phone }}</p>
+
+  <div class="doctor-actions">
+    <button (click)="toggleReviews(doctor.id)">Отзывы</button>
+
+    <ng-container *ngIf="isAuthorized()">
+      <button (click)="bookAppointment(doctor.id)">Записаться</button>
+      <button (click)="leaveReview(doctor.id)">Оставить отзыв</button>
+    </ng-container>
+  </div>
+
+  <!-- Отзывы -->
+  <div *ngIf="expandedDoctorId === doctor.id">
+    <div *ngIf="!doctorReviews[doctor.id]">
+      <p>Загрузка отзывов...</p>
+    </div>
+
+    <app-review-list *ngIf="expandedDoctorId === doctor.id" [doctorId]="doctor.id"></app-review-list>
+
+  </div>
 </div>

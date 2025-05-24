@@ -9,11 +9,11 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+}
 
-  h2 {
-    margin: 0;
-    color: #333;
-  }
+.profile-header h2 {
+  margin: 0;
+  color: #333;
 }
 
 .logout-btn {
@@ -24,10 +24,10 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
 
-  &:hover {
-    background-color: #c82333;
-  }
+.logout-btn:hover {
+  background-color: #c82333;
 }
 
 .profile-content {
@@ -37,11 +37,9 @@
   padding: 1.5rem;
 }
 
-.user-info {
-  h3 {
-    color: #333;
-    margin-bottom: 1.5rem;
-  }
+.user-info h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
 .info-item {
@@ -50,23 +48,21 @@
   padding: 0.5rem;
   background-color: #f8f9fa;
   border-radius: 4px;
-
-  .label {
-    font-weight: bold;
-    width: 100px;
-    color: #666;
-  }
-
-  .value {
-    color: #333;
-  }
 }
 
-.appointments {
-  h3 {
-    color: #333;
-    margin-bottom: 1rem;
-  }
+.info-item .label {
+  font-weight: bold;
+  width: 100px;
+  color: #666;
+}
+
+.info-item .value {
+  color: #333;
+}
+
+.appointments h3 {
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .appointment-item {
@@ -74,16 +70,16 @@
   border-radius: 4px;
   padding: 1rem;
   margin-bottom: 1rem;
+}
 
-  .appointment-date {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
+.appointment-date {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
 
-  .appointment-status {
-    color: #666;
-  }
+.appointment-status {
+  color: #666;
 }
 
 .loading {
@@ -99,4 +95,4 @@
   background-color: #f8d7da;
   border-radius: 4px;
   margin-bottom: 1rem;
-} 
+}
