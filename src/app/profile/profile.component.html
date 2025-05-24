@@ -1,0 +1,10 @@
+<h2>My Profile</h2>
+<p>Name: {{ user.name }}</p>
+<p>Email: {{ user.email }}</p>
+
+<h3>My Appointments</h3>
+<ul>
+  <li *ngFor="let app of appointments">
+    {{ app.date }} - {{ app.time }} with Doctor ID {{ app.doctorId }}
+  </li>
+</ul>
