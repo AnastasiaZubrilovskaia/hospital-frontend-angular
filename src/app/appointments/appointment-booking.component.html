@@ -1,0 +1,32 @@
+<div class="appointment-container">
+  <h2>Запись к врачу</h2>
+
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <div *ngIf="!error">
+    <label for="date">Выберите дату:</label>
+    <input id="date" type="date" [(ngModel)]="date" (change)="fetchSlots()" />
+
+    <div *ngIf="loading">Загрузка доступных слотов...</div>
+
+    <div *ngIf="!loading && availableSlots.length === 0">
+      Нет доступных слотов на выбранную дату.
+    </div>
+
+    <div *ngIf="availableSlots.length > 0" class="slots">
+      <label>Выберите время:</label>
+      <div class="slot-list">
+        <button 
+          *ngFor="let slot of availableSlots"
+          [class.selected]="slot === selectedSlot"
+          (click)="selectedSlot = slot">
+          {{ slot }}
+        </button>
+      </div>
+
+      <button class="submit-button" [disabled]="!selectedSlot" (click)="submitAppointment()">
+        Подтвердить запись
+      </button>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,6 @@ import { DoctorService } from './core/services/doctor.service';
 import { AppointmentService } from './core/services/appointment.service';
 import { ReviewService } from './core/services/review.service';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -18,7 +17,6 @@ export const appConfig: ApplicationConfig = {
     DoctorService,
     AppointmentService,
     ReviewService,
-    NavbarComponent,
-    FooterComponent
+    NavbarComponent
   ]
 }; 

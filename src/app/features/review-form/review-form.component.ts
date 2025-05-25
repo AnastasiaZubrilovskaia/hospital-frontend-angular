@@ -75,11 +75,16 @@ export class ReviewFormComponent implements OnInit {
       this.error = 'Пожалуйста, введите комментарий';
       return;
     }
-
+  
     this.loading = true;
     this.error = null;
-
-    this.reviewService.createReview(this.doctorId, this.newReview)
+  
+    const reviewPayload = {
+      rating: Number(this.newReview.rating),
+      comment: this.newReview.comment.trim()
+    };
+  
+    this.reviewService.createReview(this.doctorId, reviewPayload)
       .pipe(
         catchError(error => {
           this.error = 'Ошибка при отправке отзыва';

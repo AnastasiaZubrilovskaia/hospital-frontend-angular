@@ -1,0 +1,18 @@
+<div *ngIf="loading">Загрузка записей...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div *ngIf="!loading && appointments.length === 0">
+  У вас пока нет записей.
+</div>
+
+<ul *ngIf="appointments.length > 0" class="appointment-list">
+  <li *ngFor="let appt of appointments" class="appointment-item">
+    <div>
+      <p><strong>Доктор:</strong> {{ appt.Doctor ? (appt.Doctor.firstName + ' ' + appt.Doctor.lastName) : 'Неизвестно' }}</p>
+      <p><strong>Специальность:</strong> {{ appt.Doctor?.Specialty?.name || 'Неизвестно' }}</p>      
+      <p><strong>Дата и время:</strong> {{ appt.appointment_date | date: 'dd.MM.yyyy HH:mm' }}</p>
+      <p><strong>Статус:</strong> {{ appt.status === 'scheduled' ? 'Запланирована' : (appt.status === 'cancelled' ? 'Отменена' : appt.status) }}</p>      
+    </div>
+    <button *ngIf="appt.status === 'scheduled'" (click)="cancelAppointment(appt.id)">Отменить</button>
+  </li>
+</ul>

@@ -2,10 +2,12 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DoctorListComponent } from './doctors/doctor-list.component';
-import { AppointmentFormComponent } from './appointments/appointment-form.component';
+import { MyAppointmentsComponent } from './appointments/my-appointments.component';
 import { ProfileComponent } from './features/profile/profile.component';
 import { ReviewFormComponent } from './features/review-form/review-form.component';
 import { authGuard } from './core/services/auth.guard';
+import { AppointmentBookComponent } from './appointments/appointment-booking.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'clinic', pathMatch: 'full' },
@@ -15,10 +17,14 @@ export const routes: Routes = [
     path: 'clinic',
     component: DoctorListComponent
   },
-  { 
-    path: 'appointments/form',
-    component: AppointmentFormComponent,
+  {
+    path: 'appointments/book',
+    component: AppointmentBookComponent,
     canActivate: [authGuard]
+  },
+  {
+    path: 'appointments/form',
+    component: MyAppointmentsComponent
   },
   { 
     path: 'profile',

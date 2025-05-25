@@ -1,0 +1,11 @@
+<div *ngIf="loading">Загрузка отзывов...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+<div *ngIf="!loading && reviews.length === 0">Пока нет отзывов</div>
+
+<div *ngFor="let review of reviews" class="review-item">
+  <div>Оценка: {{ review.rating }} / 5</div>
+  <div><strong>Комментарий:</strong> {{ review.comment }}</div>
+  <div *ngIf="review.Patient">
+    <em>Пациент: {{ review.Patient.firstName }} {{ review.Patient.lastName }}</em>
+  </div>
+</div>

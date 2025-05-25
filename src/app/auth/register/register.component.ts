@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
   standalone: true,
   imports: [FormsModule, CommonModule]
 })
@@ -27,7 +28,6 @@ export class RegisterComponent {
   onRegister() {
     this.errorMessage = '';
     
-    // Format the date to YYYY-MM-DD
     const formattedDate = this.birthDate ? new Date(this.birthDate).toISOString().split('T')[0] : '';
     
     const registerData = {
@@ -43,7 +43,6 @@ export class RegisterComponent {
 
     this.authService.register(registerData).subscribe({
       next: () => {
-        this.router.navigate(['/login']);
       },
       error: (error) => {
         console.log('Full error response:', JSON.stringify(error, null, 2));

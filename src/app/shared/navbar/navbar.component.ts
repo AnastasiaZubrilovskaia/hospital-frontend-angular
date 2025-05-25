@@ -32,9 +32,9 @@ export class NavbarComponent implements OnInit {
   }
 
   goToProfile(event: Event) {
-    event.preventDefault();  // отменяем дефолтное поведение ссылки
+    event.preventDefault();  
   
-    this.authService.loadProfile(); // обновляем профиль (асинхронно, но ок)
+    this.authService.loadProfile(); 
     this.router.navigate(['/profile']);
   }
   

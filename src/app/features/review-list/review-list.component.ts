@@ -7,20 +7,8 @@ import { Review } from '../../core/models/review.model';
   selector: 'app-review-list',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div *ngIf="loading">Загрузка отзывов...</div>
-    <div *ngIf="error" class="error">{{ error }}</div>
-    <div *ngIf="!loading && reviews.length === 0">Пока нет отзывов</div>
-    <div *ngFor="let review of reviews" class="review-item">
-      <div>Оценка: {{ review.rating }} / 5</div>
-      <div><strong>Комментарий:</strong> {{ review.comment }}</div>
-      <div *ngIf="review.Patient"><em>Пациент: {{ review.Patient.firstName }} {{ review.Patient.lastName }}</em></div>
-    </div>
-  `,
-  styles: [`
-    .review-item { border-top: 1px solid #ccc; padding: 8px 0; }
-    .error { color: red; }
-  `]
+  templateUrl: './review-list.component.html',
+  styleUrls: ['./review-list.component.scss']
 })
 export class ReviewListComponent implements OnChanges {
   @Input() doctorId!: number;

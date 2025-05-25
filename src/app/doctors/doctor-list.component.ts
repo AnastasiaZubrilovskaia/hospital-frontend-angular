@@ -41,7 +41,7 @@ export class DoctorListComponent implements OnInit {
   }
 
   bookAppointment(doctorId: number) {
-    this.router.navigate(['/appointments/form'], { queryParams: { doctorId } });
+    this.router.navigate(['/appointments/book'], { queryParams: { doctorId } });
   }
 
   isAuthorized(): boolean {

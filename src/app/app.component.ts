@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { FooterComponent } from './shared/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,9 +9,8 @@ import { RouterOutlet } from '@angular/router';
     <main class="container mt-4">
       <router-outlet></router-outlet>
     </main>
-    <app-footer></app-footer>
   `,
   standalone: true,
-  imports: [NavbarComponent, FooterComponent, RouterOutlet]
+  imports: [NavbarComponent, RouterOutlet]
 })
 export class AppComponent {}

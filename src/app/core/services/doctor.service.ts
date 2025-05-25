@@ -32,7 +32,7 @@ export class DoctorService {
     return this.http.get<{ name: string }[]>(this.SPECIALTIES_API, { params });
   }
 
-  // ✅ Получить отзывы для конкретного врача
+  //  Получить отзывы для конкретного врача
   getReviews(doctorId: number): Observable<Review[]> {
     const params = new HttpParams().set('_', Date.now().toString());
     return this.http.get<Review[]>(`${this.REVIEWS_API}/doctor/${doctorId}`, { params });
